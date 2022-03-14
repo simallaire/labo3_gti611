@@ -20,7 +20,7 @@ public class Labo3Part1Hiv2022 {
 
     /** The vmlists. */
     private static List<Vm> vmlist;
-    private static int NbCloudlets =30;
+    private static int NbCloudlets = 15;
     public static void main(String[] args) {
         Log.printLine("Starting Labo3_part1..");
         try {
@@ -43,7 +43,7 @@ public class Labo3Part1Hiv2022 {
             // la première est associé au client 1 et la deuxième au client 2
             vmlist = new ArrayList<Vm>();
 
-            vmlist = createVM(brokerId, 15, 1);
+            vmlist = createVM(brokerId, 3, 1);
 
 
             //soumettre les listes de VMs aux brokers
@@ -89,14 +89,16 @@ public class Labo3Part1Hiv2022 {
         peList.add(new Pe(1, new PeProvisionerSimple(mips)));
         peList.add(new Pe(2, new PeProvisionerSimple(mips)));
         peList.add(new Pe(3, new PeProvisionerSimple(mips)));
+        peList.add(new Pe(4, new PeProvisionerSimple(mips)));
+        peList.add(new Pe(5, new PeProvisionerSimple(mips)));
 
         //Création des hôtess et leur ajout dans la liste hostList
 
-        int ram = 4096;
+        int ram = 8192;
         long storage = 1000000;
         int bw = 10000;
 
-        for(int hostId=0;hostId<3;hostId++){
+        for(int hostId=0;hostId<1;hostId++){
             hostList.add(
                     new Host(
                             hostId,
@@ -151,9 +153,9 @@ public class Labo3Part1Hiv2022 {
 
         long size = 10000;
         int ram = 1024;
-        int mips = 250;
+        int mips = 500;
         long bw = 1000;
-        int pesNumber = 2;
+        int pesNumber = 4;
         String vmm = "Xen";
 
         Vm[] vm = new Vm[vms];
@@ -170,7 +172,7 @@ public class Labo3Part1Hiv2022 {
         LinkedList<Cloudlet> list = new LinkedList<Cloudlet>();
 
         //cloudlet parameters
-        long length = 1500;
+        long length = 2500;
         long fileSize = 300;
         long outputSize = 300;
         int pesNumber = 1;
